@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light " style="position: fixed;width: 100%;z-index:9999;top: 0px">
+    <div class="container">
+        <div>
+            <img src="{% static 'img/index/a1.jpeg' %}" height="50px" width="50px">
+        </div>
+        <a class="navbar-brand" href="{% url 'introduction' %}" style="margin: auto;top: 0;left: 0;">项目管理系统注册</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbarSupportedContent">
+            <ul class="navbar-nav justify-content-end">
+                <li class="nav-item ">
+                    <a class="nav-link" aria-current="page" href="{% url 'index' %}">主页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'introduction' %}">简介</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">登录</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'register' %}">注册</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="account" style="width: 400px;margin: auto;top: 0;left: 0;">
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label" style="margin-top: 120px">邮箱</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="name"
+                   required="required">
+            <div id="emailHelp" class="form-text">请输入正确的邮箱格式</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">密码</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+        </div>
+        <div class="mb-3">
+            <label for="AgreeToTerms">同意服务条款</label>
+            <input type="checkbox" name="AgreeToTerms" id="AgreeToTerms" value="1"/>
+            <a href="#" title="您是否同意服务条款？">先看看条款？</a>
+        </div>
+        <button type="submit" class="btn btn-primary">注册</button>
+    </form>
+</div>
+<div class="alert alert-info" role="alert" style="bottom: 0px;position: fixed;width: 100%;text-align: center">
+    我们致力于打造最优秀的项目管理平台，有任何平台相关问题请联系负责人Dew，手机：13967669160，邮箱：1274686756@qq.com
+</div>
+</body>
+</html>
